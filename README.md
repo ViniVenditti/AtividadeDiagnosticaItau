@@ -73,8 +73,8 @@ Response
     "dataCadastro": "2020-07-29"
 }
 ```
-###PUT Editar usuário
-####/usuario/{idUsuario}
+### PUT Editar usuário
+#### /usuario/{idUsuario}
 Exemplo de body
 ```
 {
@@ -91,9 +91,9 @@ response
     "dataCadastro": "2020-07-29"
 }
 ```
-##API de Ponto
+## API de Ponto
 ### POST Bater Ponto
-####/ponto
+#### /ponto
 Exemplo Body
 ```
 {
@@ -111,8 +111,8 @@ Response
     "tipoBatida": "ENTRADA"
 }
 ```
-###GET Relatório por usuário
-####/ponto/{idUsuario}
+### GET Relatório por usuário
+#### /ponto/{idUsuario}
 Api Get, não existe body
 
 Response
@@ -140,5 +140,5 @@ Response
     }
 }
 ```
-#####Observação
+##### Observação
 A API for desenvolvida para registrar o ponto com a hora atual no momento do registro.

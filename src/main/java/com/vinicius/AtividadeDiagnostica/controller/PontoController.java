@@ -30,7 +30,7 @@ public class PontoController {
     @PostMapping
     public ResponseEntity<Ponto> baterPonto(@RequestBody PontoModel pontoModel) {
         Ponto marcacao = this.mapper.from(pontoModel);
-        Ponto pontoMarcado = this.service.marcarPonto(pontoModel.getUsuarioModel().getId(), marcacao);
+        Ponto pontoMarcado = this.service.marcarPonto(marcacao);
 
         return ResponseEntity.ok(pontoMarcado);
     }

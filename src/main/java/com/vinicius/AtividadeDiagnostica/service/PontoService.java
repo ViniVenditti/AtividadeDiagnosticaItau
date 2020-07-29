@@ -2,18 +2,17 @@ package com.vinicius.AtividadeDiagnostica.service;
 
 import com.vinicius.AtividadeDiagnostica.entity.Ponto;
 import com.vinicius.AtividadeDiagnostica.entity.Usuario;
-import com.vinicius.AtividadeDiagnostica.model.PontoModel;
 import com.vinicius.AtividadeDiagnostica.model.RelatorioUsuario;
 import com.vinicius.AtividadeDiagnostica.repository.PontoBanco;
 import com.vinicius.AtividadeDiagnostica.repository.UsuarioBanco;
-import org.apache.tomcat.jni.Local;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.*;
-import java.util.stream.Collector;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -27,7 +26,7 @@ public class PontoService {
         this.usuarioBanco = usuarioBanco;
     }
 
-    public Ponto marcarPonto(Long idUsuario, Ponto ponto) {
+    public Ponto marcarPonto(Ponto ponto) {
         return this.pontoBanco.save(ponto);
     }
 

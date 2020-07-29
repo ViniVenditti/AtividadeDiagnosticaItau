@@ -6,15 +6,15 @@ import java.time.LocalDateTime;
 
 public class RelatorioUsuario {
 
-    private LocalDateTime totalHoras;
+    private Long totalHoras;
 
     private Usuario usuario;
 
-    public LocalDateTime getTotalHoras() {
+    public Long getTotalHoras() {
         return totalHoras;
     }
 
-    public void setTotalHoras(LocalDateTime totalHoras) {
+    public void setTotalHoras(Long totalHoras) {
         this.totalHoras = totalHoras;
     }
 

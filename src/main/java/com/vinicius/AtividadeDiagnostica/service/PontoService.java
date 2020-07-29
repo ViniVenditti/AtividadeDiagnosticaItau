@@ -6,11 +6,15 @@ import com.vinicius.AtividadeDiagnostica.model.PontoModel;
 import com.vinicius.AtividadeDiagnostica.model.RelatorioUsuario;
 import com.vinicius.AtividadeDiagnostica.repository.PontoBanco;
 import com.vinicius.AtividadeDiagnostica.repository.UsuarioBanco;
+import org.apache.tomcat.jni.Local;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.List;
-import java.util.Optional;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import java.util.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 @Service
 public class PontoService {
@@ -31,9 +35,23 @@ public class PontoService {
         List<Ponto> listaPontos = this.pontoBanco.findPontoByUsuario(idUsuario);
         Optional<Usuario> user = this.usuarioBanco.findById(idUsuario);
         RelatorioUsuario relatorio = new RelatorioUsuario();
+        List<Long> horasTrabalhadasPorDia = new ArrayList<Long>();
 
+        Map<LocalDateTime, List<Ponto>> mapPontoDia = listaPontos
+                .stream()
+                .collect(Collectors.groupingBy(ponto -> ponto.getHorario().truncatedTo(ChronoUnit.DAYS)));
 
-        return null;
+        mapPontoDia.entrySet().stream().forEach(entrada -> {
+            List<Ponto> pontoEntrada = entrada.getValue();
+            Map<String, List<Ponto>> collect = pontoEntrada.stream().collect(Collectors.groupingBy(p -> p.getTipoBatida()));
+            Ponto entradas = collect.get("ENTRADA").get(0);
+            Ponto saidas = collect.get("SAIDA").get(0);
+            horasTrabalhadasPorDia.add(entradas.getHorario().until(saidas.getHorario(), ChronoUnit.HOURS));
+        });
+
+        relatorio.setTotalHoras(horasTrabalhadasPorDia.stream().reduce(0l, Long::sum));
+        relatorio.setUsuario(user.get());
+        return relatorio;
     }
 
 }

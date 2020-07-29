@@ -6,7 +6,6 @@ import com.vinicius.AtividadeDiagnostica.entity.Ponto;
 import com.vinicius.AtividadeDiagnostica.mapper.PontoMapper;
 import com.vinicius.AtividadeDiagnostica.model.PontoModel;
 import com.vinicius.AtividadeDiagnostica.model.RelatorioUsuario;
-import com.vinicius.AtividadeDiagnostica.model.UsuarioModel;
 import com.vinicius.AtividadeDiagnostica.service.PontoService;
 import org.junit.Test;
 import org.junit.runner.RunWith;

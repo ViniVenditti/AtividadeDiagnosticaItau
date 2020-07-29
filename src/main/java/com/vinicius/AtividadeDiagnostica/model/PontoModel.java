@@ -1,7 +1,5 @@
 package com.vinicius.AtividadeDiagnostica.model;
 
-import java.time.LocalDateTime;
-
 public class PontoModel {
 
     private String tipoBatida;

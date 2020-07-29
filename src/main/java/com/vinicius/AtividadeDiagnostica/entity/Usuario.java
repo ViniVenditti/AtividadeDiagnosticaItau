@@ -3,7 +3,6 @@ package com.vinicius.AtividadeDiagnostica.entity;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.List;
 
 @Entity

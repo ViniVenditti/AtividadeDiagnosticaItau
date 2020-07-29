@@ -2,8 +2,6 @@ package com.vinicius.AtividadeDiagnostica.model;
 
 import com.vinicius.AtividadeDiagnostica.entity.Usuario;
 
-import java.time.LocalDateTime;
-
 public class RelatorioUsuario {
 
     private Long totalHoras;

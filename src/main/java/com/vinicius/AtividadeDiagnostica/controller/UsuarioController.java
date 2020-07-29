@@ -4,7 +4,6 @@ import com.vinicius.AtividadeDiagnostica.entity.Usuario;
 import com.vinicius.AtividadeDiagnostica.mapper.UsuarioMapper;
 import com.vinicius.AtividadeDiagnostica.model.UsuarioModel;
 import com.vinicius.AtividadeDiagnostica.service.UsuarioService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
